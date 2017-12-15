@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FileManagerSavvycom</string>
+    <string name="error_request_permission">You need to give access to External Storage</string>
+</resources>
