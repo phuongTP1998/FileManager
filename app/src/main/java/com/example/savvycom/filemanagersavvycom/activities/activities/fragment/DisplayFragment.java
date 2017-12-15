@@ -2,6 +2,7 @@ package com.example.savvycom.filemanagersavvycom.activities.activities.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +25,7 @@ import java.util.List;
 public class DisplayFragment extends Fragment{
     private RecyclerView recyclerView;
     private File path;
-    private List<File> filesAndFolders;
+    private List<File> filesAndFolders = new ArrayList<>();
     private Toolbar toolbar;
     private DisplayFragmentAdapter adapter;
 
@@ -42,8 +43,10 @@ public class DisplayFragment extends Fragment{
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         gridLayoutManager.setOrientation(GridLayoutManager.VERTICAL);
 
+        fetchFileandFolder();
+
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        toolbar.setTitle(path.getName());
+//        toolbar.setTitle(path.getName());
 
 
         adapter = new DisplayFragmentAdapter(filesAndFolders,onItemClickListenerCallback,getActivity());
@@ -52,6 +55,19 @@ public class DisplayFragment extends Fragment{
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    private void fetchFileandFolder() {
+        File root = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
+        listDirectory(root);
+    }
+
+    private void listDirectory(File f) {
+        File[] files = f.listFiles();
+        filesAndFolders.clear();
+        for (File file : files) {
+            filesAndFolders.add(file);
+        }
     }
 
     private DisplayFragmentAdapter.OnItemClickListener onItemClickListenerCallback = new DisplayFragmentAdapter.OnItemClickListener() {
@@ -69,5 +85,5 @@ public class DisplayFragment extends Fragment{
         public void onIconClick(View view, int position) {
 
         }
-    }
+    };
 }

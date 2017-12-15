@@ -35,7 +35,6 @@ public class DisplayFragmentAdapter extends RecyclerView.Adapter<DisplayFragment
     private Context context;
     private FragmentManager fragmentManager;
     private Fragment fragment;
-    private SparseBooleanArray selectedItems;
     private OnItemClickListener onItemClickListener;
     private FileManager fileManager;
 
@@ -94,9 +93,7 @@ public class DisplayFragmentAdapter extends RecyclerView.Adapter<DisplayFragment
             }
         });
 
-        if (selectedItems.get(position, false)) {
-            holder.cardView.setCardBackgroundColor(Color.parseColor("#6666FF"));
-        } else holder.cardView.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
+        holder.cardView.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
     }
 
     public void setIcon(File file, DisplayFragmentViewHolder holder) {

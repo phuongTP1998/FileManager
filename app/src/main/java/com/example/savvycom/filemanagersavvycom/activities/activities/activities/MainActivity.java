@@ -39,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
         init();
 
         displayFragment();
-
-        File root = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
-        ListDir(root);
     }
 
     private void displayFragment() {
@@ -62,13 +59,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
-    void ListDir(File f) {
-        File[] files = f.listFiles();
-        fileList.clear();
-        for (File file : files) {
-            fileList.add(file);
-        }
-    }
+
 
 
     private void requestForPermission() {
