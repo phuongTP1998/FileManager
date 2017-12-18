@@ -9,8 +9,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.savvycom.filemanagersavvycom.R;
-import com.example.savvycom.filemanagersavvycom.activities.activities.FileManager;
+import com.example.savvycom.filemanagersavvycom.activities.activities.manager.FileManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -31,7 +29,7 @@ import java.util.List;
  */
 
 public class DisplayFragmentAdapter extends RecyclerView.Adapter<DisplayFragmentAdapter.DisplayFragmentViewHolder> {
-    private List<File> fileList;
+    private ArrayList<File> fileList;
     private Context context;
     private FragmentManager fragmentManager;
     private Fragment fragment;
@@ -46,7 +44,7 @@ public class DisplayFragmentAdapter extends RecyclerView.Adapter<DisplayFragment
         void onIconClick(View view, int position);
     }
 
-    public DisplayFragmentAdapter(List<File> file, OnItemClickListener onItemClickListener, Context context) {
+    public DisplayFragmentAdapter(ArrayList<File> file, OnItemClickListener onItemClickListener, Context context) {
         this.fileList = file;
         this.context = context;
         this.onItemClickListener = onItemClickListener;

@@ -1,10 +1,18 @@
-package com.example.savvycom.filemanagersavvycom.activities.activities;
+package com.example.savvycom.filemanagersavvycom.activities.activities.manager;
+
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by savvycom on 12/15/2017.
  */
 
 public class FileManager {
+
     public FileManager(){}
 
     public String getExtension(String url) {
@@ -26,4 +34,10 @@ public class FileManager {
             return ext.toLowerCase();
         }
     }
+
+    public boolean newFolder(File directory, String name){
+        return new File(directory, name).mkdir();
+    }
+
+
 }

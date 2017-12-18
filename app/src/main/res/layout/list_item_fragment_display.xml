@@ -4,7 +4,7 @@
     android:id="@+id/linearLayout"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="80dp"
     android:weightSum="1"
     android:focusable="true"
     android:clickable="true"
